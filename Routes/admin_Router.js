@@ -25,5 +25,7 @@ AdminRouter.put("/courses", (req, res) => {
 AdminRouter.get("/delete", (req, res) => {
   res.send("Deleting a course  Endpoint");
 });
-
+AdminRouter.get("/bulk", (req, res) => {
+  res.send(" ALL courses!!");
+});
 export default AdminRouter;
