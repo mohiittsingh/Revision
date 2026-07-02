@@ -1,16 +1,15 @@
-const mongoose = require('mongoose');
+import mongoose from "mongoose";
 
-// Connect to MongoDB
-mongoose.connect("mongodb://127.0.0.1:27017/COursesellingweb_100xdevs")
-  .then(() => console.log("✅ MongoDB Connected Successfully"))
-  .catch(err => console.log("❌ MongoDB Connection Error:", err));
+mongoose
+  .connect("mongodb://127.0.0.1:27017/COursesellingweb_100xdevs")
+  .then(() => console.log("MongoDB Connected Successfully"))
+  .catch((err) => console.log("MongoDB Connection Error:", err));
 
-// Define Schemas
 const UserSchema = new mongoose.Schema({
   email: { type: String, unique: true },
   password: String,
   firstname: String,
-  lastname: String
+  lastname: String,
 });
 
 const CourseSchema = new mongoose.Schema({
@@ -18,33 +17,25 @@ const CourseSchema = new mongoose.Schema({
   description: String,
   price: Number,
   imageUrl: String,
-  creatorId: { type: mongoose.Schema.Types.ObjectId, ref: "User" }
+  creatorId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
 });
 
 const AdminSchema = new mongoose.Schema({
   email: { type: String, unique: true },
   password: String,
   firstname: String,
-  lastname: String
+  lastname: String,
 });
 
 const PurchaseSchema = new mongoose.Schema({
   userId: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
-  courseId: { type: mongoose.Schema.Types.ObjectId, ref: "Course" }
+  courseId: { type: mongoose.Schema.Types.ObjectId, ref: "Course" },
 });
 
-// Create Models
 const UserModel = mongoose.model("User", UserSchema);
 const CourseModel = mongoose.model("Course", CourseSchema);
 const AdminModel = mongoose.model("Admin", AdminSchema);
 const PurchaseModel = mongoose.model("Purchase", PurchaseSchema);
 
-
-// Export Models
-module.exports = {
-  UserModel,
-  CourseModel,
-  AdminModel,
-  PurchaseModel
-};
-
+export { UserModel, CourseModel, AdminModel, PurchaseModel };
+export default mongoose;

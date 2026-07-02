@@ -1,31 +1,29 @@
-const express=require('express');
-const AdminRouter=express.Router();
-const {Adminmodel}=require('../db')
+import express from "express";
 
-AdminRouter.get('/',(req,res)=>{
-res.send("Hello admin endpoint!!!")
-})
-AdminRouter.post('/signup',(req,res)=>{
-res.send("Hello signup as admin !!!")
-})
-AdminRouter.post('/login',(req,res)=>{
-res.send(" admin Login Endpoint")
-})
+const AdminRouter = express.Router();
 
-AdminRouter.get('/courses',(req,res)=>{
-res.send("Purchasing  Endpoint")
-})
+AdminRouter.get("/", (req, res) => {
+  res.send("Hello admin endpoint!!!");
+});
 
-AdminRouter.get('/courses',(req,res)=>{
-res.send("Purchasing  Endpoint")
-})
+AdminRouter.post("/signup", (req, res) => {
+  res.send("Hello signup as admin !!!");
+});
 
-AdminRouter.put('/courses',(req,res)=>{
-res.send("Purchasing  Endpoint")
-})
+AdminRouter.post("/login", (req, res) => {
+  res.send("admin Login Endpoint");
+});
 
-AdminRouter.get('/delete',(req,res)=>{
-res.send("Deleting a course  Endpoint")
-})
+AdminRouter.get("/courses", (req, res) => {
+  res.send("Purchasing  Endpoint");
+});
 
-module.exports= AdminRouter
+AdminRouter.put("/courses", (req, res) => {
+  res.send("Purchasing  Endpoint");
+});
+
+AdminRouter.get("/delete", (req, res) => {
+  res.send("Deleting a course  Endpoint");
+});
+
+export default AdminRouter;

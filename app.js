@@ -1,22 +1,19 @@
-const express=require('express')
-const app =express();
-console.log(process);
+import express from "express";
+import "./db.js";
+import userRouter from "./Routes/User_Router.js";
+import courseRouter from "./Routes/Course_Router.js";
+import adminRouter from "./Routes/admin_Router.js";
 
-const mongoose = require("./db");
-const userRouter=require('./Routes/User_Router');
-const CourseRouter=require('./Routes/Course_Router');
-const AdminRouter=require('./Routes/admin_Router');
+const app = express();
 
+app.get("/", (req, res) => {
+  res.send("Hello");
+});
 
-app.get('/',(req,res)=>{
-res.send("Hello")
-})
-app.use('/user',userRouter);
-app.use('/course',CourseRouter);
-app.use('/admin',AdminRouter);
+app.use("/user", userRouter);
+app.use("/course", courseRouter);
+app.use("/admin", adminRouter);
 
-
-app.listen(3000,(req,res)=>{
-    console.log("SERVER RUNNING ON 3000 PORT!!!!!!!!!!!");
-    
-})
+app.listen(3000, () => {
+  console.log("SERVER RUNNING ON 3000 PORT!!!!!!!!!!!");
+});
