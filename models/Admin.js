@@ -1,7 +1,7 @@
 import { Schema } from "mongoose";
 import { v4 as uuidv4 } from  "uuid";
-
-const Adminschema = Schema({
+import mongoose from "mongoose";
+const Adminschema = new Schema({
     uuid: {
         type: String,
         default: uuidv4,
@@ -32,5 +32,5 @@ const Adminschema = Schema({
   }
 );
 
-const Admin = mongoose.model("AdminModel", Adminschema);
-export default Admin;
+const Adminmodel = mongoose.model("AdminModel", Adminschema);
+export default Adminmodel;

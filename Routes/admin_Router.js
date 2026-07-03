@@ -1,5 +1,5 @@
 import express from "express";
-
+import Adminmodel from "../models/Admin.js";
 const AdminRouter = express.Router();
 
 AdminRouter.get("/", (req, res) => {
@@ -22,7 +22,7 @@ AdminRouter.put("/courses", (req, res) => {
   res.send("Purchasing  Endpoint");
 });
 
-AdminRouter.get("/delete", (req, res) => {
+AdminRouter.post("/delete", (req, res) => {
   res.send("Deleting a course  Endpoint");
 });
 AdminRouter.get("/bulk", (req, res) => {

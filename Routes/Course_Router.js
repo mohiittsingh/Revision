@@ -1,5 +1,5 @@
 import express from "express";
-
+import Course_model from "../models/Courses.js";
 const CourseRouter = express.Router();
 
 CourseRouter.get("/courses", (req, res) => {

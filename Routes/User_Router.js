@@ -1,4 +1,5 @@
 import express from "express";
+import Usermodel from "../models/user.js";
 
 const UserRouter = express.Router();
 

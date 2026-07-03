@@ -1,7 +1,7 @@
 import { Schema } from "mongoose";
 import { v4 as uuidv4 } from  "uuid";
-
-const userschema = Schema({
+import mongoose from "mongoose";
+const userschema = new Schema({
     uuid: {
         type: String,
         default: uuidv4,
@@ -29,5 +29,5 @@ const userschema = Schema({
   }
 );
 
-const User = mongoose.model("UserModel", userSchema);
-export default User;
+const Usermodel = mongoose.model("UserModel", userschema);
+export default Usermodel;

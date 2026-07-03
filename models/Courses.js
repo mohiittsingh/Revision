@@ -1,36 +1,30 @@
 import { Schema } from "mongoose";
 import { v4 as uuidv4 } from  "uuid";
-
-const Courseschema = Schema({
+import mongoose from "mongoose";
+const Courseschema =  new Schema({
     uuid: {
         type: String,
         default: uuidv4,
         unique: true
     },
-    first_name:{type:String,
+    title:{type:String,
         required:true
     },
-     last_name:{type:String,
-        required:true
+    price:{
+        type:Number,
+
     },
-     email: {
-      type: String,
-      required: true,
-      unique: true,
-      lowercase: true,
-      trim: true,
+    creatorid:{
+        type: mongoose.Schema.Types.ObjectId,
+    ref: "AdminModel"
     },
+    description:{
+        type:String
+    }
+    },
+)
     
 
-    password: {
-      type: String,
-      required: true,
-    },
-  },
-  {
-    timestamps: true,
-  }
-);
 
-const Course = mongoose.model("CourseModel", Courseschema);
-export default Course;
+const Course_model = mongoose.model("CourseModel", Courseschema);
+export default Course_model
