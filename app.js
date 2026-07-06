@@ -10,8 +10,10 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.get("/", (req, res) => {
-  res.send("Hello");
+
 });
+app.post()
+app.use("/admin")
 app.use("/user", userRouter);
 app.use("/course", courseRouter);
 app.use("/admin", adminRouter);

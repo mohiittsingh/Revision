@@ -1,21 +1,15 @@
 import express from "express";
+import { validate } from "../middleware/validate.js";
 import Adminmodel from "../models/Admin.js";
 import { Admins_signup_schema } from "../Validations/Adminschema.js";
+import { signup } from "../controller/Admnincontroller.js";
 import * as z from "zod"
 const AdminRouter = express.Router();
 
 AdminRouter.get("/", (req, res) => {
   res.send("Hello admin endpoint!!!");
 });
-
-AdminRouter.post("/signup", async (req, res) => {
- const email=req.boy.email;
- const first_name=req.boy.first_name;
- const last_name=req.boy.last_name;
- const password=req.body.password;
- 
-});
-
+AdminRouter.post("/signup", validate(Admins_signup_schema), signup);
 AdminRouter.post("/login", (req, res) => {
   res.send("admin Login Endpoint");
 });
