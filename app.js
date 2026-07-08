@@ -12,8 +12,7 @@ app.use(express.json());
 app.get("/", (req, res) => {
 
 });
-app.post()
-app.use("/admin")
+
 app.use("/user", userRouter);
 app.use("/course", courseRouter);
 app.use("/admin", adminRouter);

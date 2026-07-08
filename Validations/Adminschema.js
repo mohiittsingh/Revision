@@ -7,3 +7,8 @@ export const Admins_signup_schema=z.object({
     password:z.string().min(4)
 
 })
+
+export const Admins_login_schema = z.object({
+  email: z.string().email(),
+  password: z.string().min(4),
+});

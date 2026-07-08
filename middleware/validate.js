@@ -1,3 +1,4 @@
+import bcrypt from "bcrypt"
 export const validate=(schema)=>{
     return (req,res,next)=>{
         const result = schema.safeParse(req.body);
@@ -11,4 +12,5 @@ export const validate=(schema)=>{
     req.body = result.data;
         next();
     }
+                                                                                                                                                                                                                                                                                                                                                                                                    
 }
